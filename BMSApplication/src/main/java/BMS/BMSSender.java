@@ -4,7 +4,7 @@ import streamer.BMSStreamerImpl;
 import streamer.IBMSStreamer;
 
 /**
- * BMS Application that will stream BMS data
+ * BMS Application that will stream BMS data test
  *
  */
 public class BMSSender {
