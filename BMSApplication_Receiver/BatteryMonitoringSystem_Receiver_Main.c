@@ -92,10 +92,10 @@ int main()
 					//printf("Paramter value = %f\n", paramBuffer[parNum]); //for debug purpose
 
 					/* Iterate to next parameter in the buffer*/ 
-					//parNum++; 
+					parNum++; 
 
 					/*Escape Comma separated character*/
-					//i++;
+					i++;
 			}
 
  
