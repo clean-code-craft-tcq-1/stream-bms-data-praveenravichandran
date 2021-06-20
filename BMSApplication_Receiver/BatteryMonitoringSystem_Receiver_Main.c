@@ -18,7 +18,7 @@
 #include <stdio.h>
 
 /*------ module includes --------*/
-
+#define BatteryMonitoringSystem_Receiver_Main.h
 
 /*=============================================================================
  =======               DEFINES & MACROS FOR GENERAL PURPOSE              =======
