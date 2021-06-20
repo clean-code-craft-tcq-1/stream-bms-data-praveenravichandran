@@ -31,4 +31,4 @@ jobs:
         sudo apt-get install -y gcovr
 
     - name: Build and main class
-      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" > trial.txt
+      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" > BMSApplication_Receiver/InputFile.txt
