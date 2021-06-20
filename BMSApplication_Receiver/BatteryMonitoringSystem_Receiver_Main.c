@@ -47,7 +47,7 @@ int  readInputFromPipe(char *stringIP)
 	if(stringIP != NULL)
 	{
 		scanf("%s",stringIP);
-    		len = strlen(stringIP);
+    		length = strlen(stringIP);
     
     		stringIP[length] = '\n';
     		stringIP[length + 1] = '\0';
