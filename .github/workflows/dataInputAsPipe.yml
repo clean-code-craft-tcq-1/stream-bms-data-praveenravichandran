@@ -29,9 +29,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
-      
-    - name: build c
-      run: g++ -DUNIT_TEST -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./BMSApplication_Receiver/BatteryMonitoringSystem_Receiver_Main.c
 
     - name: Build and main class
-      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" | BatteryMonitoringSystem_Receiver_Main.c
+      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" | c BatteryMonitoringSystem_Receiver_Main.c
