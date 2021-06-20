@@ -38,6 +38,9 @@ public class BMSStreamerImpl implements IBMSStreamer {
 		bmsValues.append(",");
 		bmsValues.append("batterySoC:" + ThreadLocalRandom.current().nextInt(0, 100 + 1));
 		System.out.println(bmsValues.toString());
+		
+		PrintStream o = new PrintStream(new File("Trial.txt"));
+		System.setOut(o);
 	}
 
 }
