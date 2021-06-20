@@ -3,7 +3,6 @@ package streamer;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
-import java.io.*;
 
 /*
  * This method will print 2 random values(separated by comma) for every 1 second
@@ -39,9 +38,6 @@ public class BMSStreamerImpl implements IBMSStreamer {
 		bmsValues.append(",");
 		bmsValues.append("batterySoC:" + ThreadLocalRandom.current().nextInt(0, 100 + 1));
 		System.out.println(bmsValues.toString());
-		
-		PrintStream o = new PrintStream(new File("Trial.txt"));
-		System.setOut(o);
 	}
 
 }
