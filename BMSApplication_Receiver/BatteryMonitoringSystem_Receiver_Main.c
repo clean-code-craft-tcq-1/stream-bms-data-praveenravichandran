@@ -42,8 +42,8 @@ int main()
 	char stringIP[1000];
 	
 	printf("%d\n",5);
-	scanf("%s",stringIP);
-	printf("%s",stringIP);
+	scanf("%s",stringIP[1000]);
+	printf("%s",stringIP[1000]);
 	return 0;
 }
 #endif
