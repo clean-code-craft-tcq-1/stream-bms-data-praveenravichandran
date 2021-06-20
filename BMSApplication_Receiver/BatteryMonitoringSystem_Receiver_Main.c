@@ -39,7 +39,10 @@
 #ifndef UNIT_TEST   	
 int main()
 {
-
+	char stringIP[1000];
+	
+	scanf("%s",stringIP);
+	printf("%s",stringIP);
 	return 0;
 }
 #endif
