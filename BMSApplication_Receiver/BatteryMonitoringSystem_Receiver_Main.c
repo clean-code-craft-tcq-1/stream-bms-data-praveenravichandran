@@ -42,8 +42,12 @@ int main()
 	char stringIP[1000];
 	
 	printf("%d\n",5);
-	scanf("%s",stringIP[0]);
-	printf("%s",stringIP[0]);
+	
+	while(fgets(stringIP, sizeof(stringIP), stdin) != NULL)
+	{
+		printf(stringIP[1]);
+	}
+	
 	return 0;
 }
 #endif
