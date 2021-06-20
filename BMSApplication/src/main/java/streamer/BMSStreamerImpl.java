@@ -3,6 +3,7 @@ package streamer;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
+import java.io.*;
 
 /*
  * This method will print 2 random values(separated by comma) for every 1 second
