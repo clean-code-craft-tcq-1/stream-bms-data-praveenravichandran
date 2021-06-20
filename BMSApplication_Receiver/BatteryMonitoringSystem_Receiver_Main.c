@@ -75,6 +75,29 @@ int main()
  		char par[15]; //string for each parameter 
   		int parNum = 0;  //count of parameters
 
+		 while ((stringIP[i] != '\n'))
+		{
+		
+					/* Read each parameter */
+					for (j = 0;stringIP[i] != ',';j++, i++)
+					{
+						par[j] = stringIP[i];
+					}
+
+					//par[j] = '\0'; //Adding end of string
+		
+					/* Convert string to float number to evaluate further */
+					//paramBuffer[parNum] = atof(par);
+		
+					//printf("Paramter value = %f\n", paramBuffer[parNum]); //for debug purpose
+
+					/* Iterate to next parameter in the buffer*/ 
+					//parNum++; 
+
+					/*Escape Comma separated character*/
+					//i++;
+			}
+
  
 		
 	}
