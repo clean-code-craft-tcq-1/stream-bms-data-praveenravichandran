@@ -1,1 +1,1 @@
-bool  readInputFromPipe(char *paramIP);
+int  readInputFromPipe(char *paramIP);
