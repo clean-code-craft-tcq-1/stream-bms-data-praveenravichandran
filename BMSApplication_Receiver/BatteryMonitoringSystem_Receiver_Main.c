@@ -16,9 +16,13 @@
  ============================================================================*/
 /*------ standard includes -------*/
 #include <stdio.h>
+#include<stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+#include <string.h>
 
 /*------ module includes --------*/
-#define BatteryMonitoringSystem_Receiver_Main.h
+#include "BatteryMonitoringSystem_Receiver_Main.h"
 
 /*=============================================================================
  =======               DEFINES & MACROS FOR GENERAL PURPOSE              =======
