@@ -29,7 +29,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
+        sudo apt-get install build-essential
 
     - name: Build and main class
-      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" | C Trial.c
+      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" | c Trial.c
       
