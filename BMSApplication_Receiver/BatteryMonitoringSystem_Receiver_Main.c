@@ -90,7 +90,7 @@ int main()
     			/* Convert string to float number to evaluate further */
     			paramBuffer[parNum] = atof(par);
     
-    			printf("Paramter value = %f\n", paramBuffer[parNum]); //for debug purpose
+    			//printf("Paramter value = %f\n", paramBuffer[parNum]); //for debug purpose
 
     			/* Iterate to next parameter in the buffer*/ 
     			parNum++; 
