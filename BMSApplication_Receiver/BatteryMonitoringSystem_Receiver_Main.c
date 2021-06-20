@@ -39,14 +39,8 @@
 #ifndef UNIT_TEST   	
 int main()
 {
-	const char* stringIP[1000];
+	char stringIP[25];
 	
-	printf("%d\n",5);
-	
-	while(fgets(stringIP, sizeof stringIP, stdin) != NULL)
-	{
-		printf("%s",stringIP[1]);
-	}
 	
 	return 0;
 }
