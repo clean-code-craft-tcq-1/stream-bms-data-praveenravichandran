@@ -46,10 +46,10 @@ int  readInputFromPipe(char *stringIP)
 	int length=0;
 	if(stringIP != NULL)
 	{
-		scanf("%s",stringIP);
-		printf("%s\n",stringIP);
-		printf("%c\n",stringIP[0]);
-    		length = strlen(stringIP);
+		//scanf("%s",stringIP);
+		//printf("%s\n",stringIP);
+		//printf("%c\n",stringIP[0]);
+    		//length = strlen(stringIP);
     		printf("%d\n",length);
 		
     		stringIP[length] = '\n';
@@ -66,6 +66,19 @@ int  readInputFromPipe(char *stringIP)
 int main()
 {
 	char stringIP[25];
+	
+	fgets(stringIP, sizeof stringIP, stdin);
+   	
+	if (stringIP[strlen(stringIP)-1] == '\n') 
+	{
+        	// read full line
+		scanf("%s",stringIP);
+		printf("%s\n",stringIP);
+		printf("%c\n",stringIP[0]);
+    	} else 
+	{
+        	// line was truncated
+    	}
 	
 	int readStatus = readInputFromPipe(stringIP);
 	
