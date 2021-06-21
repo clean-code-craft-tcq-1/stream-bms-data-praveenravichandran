@@ -70,7 +70,7 @@ int main(int argc,char *argv[])
 	 int p[2], i;
 	
 	int nread = read(p[0], stringIP , 250);
-	   		printf("%s\n",stringIP);
+	   		printf("String is %s\n",stringIP);
 		printf("%c\n",stringIP[0]);
 	printf("%d\n",nread);
 	
