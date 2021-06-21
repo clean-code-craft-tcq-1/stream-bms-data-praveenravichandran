@@ -1,2 +1,2 @@
 int  readInputFromPipe(char *paramIP);
-float getTempParameterValue(char * TempString);
+float getParameterValue(char * TempString);
