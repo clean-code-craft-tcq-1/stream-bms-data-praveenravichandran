@@ -79,7 +79,7 @@ int main()
 	 for (i = 0; i < 3; i++) {
         /* read pipe */
         read(p[0], stringIP, 250);
-        printf("% s\n", inbuf);
+        printf("% s\n", stringIP);
 		 		printf("%s\n",stringIP);
 		printf("%c\n",stringIP[0]);
     }
