@@ -55,6 +55,9 @@ int main()
 	{
 		printf("%s", InputString); 
 		char * token = strtok(InputString, ",");
+		printf("InputString = %s\n",InputString);
+		printf("token = %s\n",token);
+		
    		// loop through the string to extract all other tokens
    		while( token != NULL ) 
 		{
