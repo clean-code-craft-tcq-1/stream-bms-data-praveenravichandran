@@ -47,6 +47,7 @@ int  readInputFromPipe(char *stringIP)
 	if(stringIP != NULL)
 	{
 		scanf("%s",stringIP);
+		printf("%s\n",stringIP);
     		length = strlen(stringIP);
     
     		stringIP[length] = '\n';
@@ -75,14 +76,14 @@ int main()
  		char par[15]; //string for each parameter 
   		int parNum = 0;  //count of parameters
 
-		 while ((stringIP[i] != '\n'))
-		{
+		// while ((stringIP[i] != '\n'))
+		//{
 		
 					/* Read each parameter */
-					for (j = 0;stringIP[i] != ',';j++, i++)
-					{
-						par[j] = stringIP[i];
-					}
+					//for (j = 0;stringIP[i] != ',';j++, i++)
+					//{
+					//	par[j] = stringIP[i];
+					//}
 
 					//par[j] = '\0'; //Adding end of string
 		
@@ -95,8 +96,8 @@ int main()
 					//parNum++; 
 
 					/*Escape Comma separated character*/
-					i++;
-			}
+					//i++;
+			//}
 
  
 		
