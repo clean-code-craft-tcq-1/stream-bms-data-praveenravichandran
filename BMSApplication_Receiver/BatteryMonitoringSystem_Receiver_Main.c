@@ -78,8 +78,8 @@ int main()
 		temp_Value = getParameterValue(TempString);
 		soc_Value = getParameterValue(SOCString);
 		
-		printf("Temp=.2f",temp_Value);
-		printf("SOC=.2f",soc_Value);
+		printf("Temp=%.2f",temp_Value);
+		printf("SOC=%.2f",soc_Value);
 	}
 	
 	fclose(fp);
