@@ -73,16 +73,10 @@ int main()
    		printf("%s\n",stringIP);
 		printf("%c\n",stringIP[0]);
 	
-		scanf("%s",stringIP);
-		printf("%s\n",stringIP);
-		printf("%c\n",stringIP[0]);
-	
-	 for (i = 0; i < 3; i++) {
-        /* read pipe */
-        read(p[0], stringIP, 250);
-        printf("% s\n", stringIP);
-		 		printf("%s\n",stringIP);
-		printf("%c\n",stringIP[0]);
+    if (1 == sscanf(stringIP, "%d", &i)) {
+        /* i can be safely used */
+	    printf("%d\n",i);
+	    printf("%c\n",stringIP[0]);
     }
 	
 	if (stringIP[strlen(stringIP)-1] == '\n') 
