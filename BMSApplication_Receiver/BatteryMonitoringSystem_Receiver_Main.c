@@ -50,6 +50,29 @@ float getParameterValue(char * TempString)
 	return temp;
 }
 
+int calculateMinParameterValue(float paramValue, float paramMin)
+{
+	if(paramValue<paramMin)
+	{
+		return paramValue;
+	}
+	return paramMin;	
+}
+
+int calculateMaxParameterValue(float paramValue, float paramMax)
+{
+	if(paramValue>paramMax)
+	{
+		return paramValue;
+	}
+	return paramMax;	
+}
+
+void printParameter(char paramName[100],char paramStatus[100],float paramValue)
+{
+	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
+}
+
 int main()
 {
 	FILE *fp;
@@ -58,6 +81,10 @@ int main()
 	char * SOCString;
 	float temp_Value;
 	float soc_Value;
+	float tempMin = 0;
+	float SOCMin = 0;
+	float tempMax = 0;
+	float SOCMax = 0;
 	
 	char* pend;
 	
@@ -65,7 +92,6 @@ int main()
 	
 	while (fgets(InputString, 255, (FILE*)fp)) 
 	{
-		printf("%s", InputString); 
 		char * token = strtok(InputString, ",");
 		TempString = token;
 		
@@ -75,8 +101,16 @@ int main()
 		temp_Value = getParameterValue(TempString);
 		soc_Value = getParameterValue(SOCString);
 		
-		printf("Temp=%.2f\n",temp_Value);
-		printf("SOC=%.2f\n",soc_Value);
+		tempMin = calculateMinParameterValue(temp_Value,tempMin);
+		SOCMin = calculateMinParameterValue(soc_Value,SOCMin);
+		
+		tempMax = calculateMaxParameterValue(temp_Value,tempMax);
+		SOCMax = calculateMaxParameterValue(soc_Value,SOCMax);
+		
+		printParameter("Temperature","minimum",tempMin);
+		printParameter("Temperature","maximum",SOCMin);
+		printParameter("SOC","minimum",tempMax);
+		printParameter("SOC","maximum",SOCMax);
 	}
 	
 	fclose(fp);
