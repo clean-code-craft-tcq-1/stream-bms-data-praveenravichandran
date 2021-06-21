@@ -47,6 +47,9 @@ int main()
 {
 	FILE *fp;
    	char InputString[255];
+	char TempString[100];
+	char SOCString[100];
+	
 	char* pend;
 	
    	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
@@ -55,15 +58,14 @@ int main()
 	{
 		printf("%s", InputString); 
 		char * token = strtok(InputString, ",");
-		printf("InputString = %s\n",InputString);
-		printf("token = %s\n",token);
+		TempString = token;
 		
-   		// loop through the string to extract all other tokens
-   		while( token != NULL ) 
-		{
-      			printf( " %s\n", token ); //printing each token
-      			token = strtok(NULL, ",");
-   		}
+		token = strtok(NULL, ",");
+		SOCString = token;
+			
+		printf("TempString = %s",TempString);
+		printf("SOCString = %s",SOCString);
+
 	}
 	
 	fclose(fp);
