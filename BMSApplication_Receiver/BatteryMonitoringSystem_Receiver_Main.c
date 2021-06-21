@@ -50,7 +50,7 @@ float getParameterValue(char * TempString)
 	return temp;
 }
 
-int calculateMinParameterValue(float paramValue, float paramMin)
+float calculateMinParameterValue(float paramValue, float paramMin)
 {
 	if(paramValue<paramMin)
 	{
@@ -59,7 +59,7 @@ int calculateMinParameterValue(float paramValue, float paramMin)
 	return paramMin;	
 }
 
-int calculateMaxParameterValue(float paramValue, float paramMax)
+float calculateMaxParameterValue(float paramValue, float paramMax)
 {
 	if(paramValue>paramMax)
 	{
@@ -108,8 +108,8 @@ int main()
 		SOCMax = calculateMaxParameterValue(soc_Value,SOCMax);
 		
 		printParameter("Temperature","minimum",tempMin);
-		printParameter("Temperature","maximum",SOCMin);
-		printParameter("SOC","minimum",tempMax);
+		printParameter("Temperature","maximum",tempMax);
+		printParameter("SOC","minimum",SOCMin);
 		printParameter("SOC","maximum",SOCMax);
 	}
 	
