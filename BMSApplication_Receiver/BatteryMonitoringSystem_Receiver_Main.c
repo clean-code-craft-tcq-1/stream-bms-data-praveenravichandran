@@ -74,19 +74,7 @@ int main(int argc,char *argv[])
 		printf("%c\n",stringIP[0]);
 	printf("%d\n",nread);
 	
-	FILE *in=fopen(*++argv,"r");
-	char c;
-	          while (fgets(stringIP, sizeof stringIP, stdin))  
-             { 
-                 		printf("%s\n",stringIP);
-		printf("%c\n",stringIP[0]);
-             }
-	
-	//while((c=fgetc(in))!=EOF)
-	{
-		//putchar(c);
-	}
-	fclose(in);
+
 	
 	fgets(stringIP, sizeof stringIP, stdin);
    		printf("%s\n",stringIP);
