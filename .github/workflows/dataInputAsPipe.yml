@@ -32,5 +32,5 @@ jobs:
         sudo apt-get install build-essential
 
     - name: Build and main class
-      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" | gcc ./BMSApplication_Receiver/BatteryMonitoringSystem_Receiver_Main.c
+      run: mvn -f ./BMSApplication/pom.xml compile exec:java -Dexec.mainClass="BMS.BMSSender" |  ./BMSApplication_Receiver/BatteryMonitoringSystem_Receiver_Main
       
