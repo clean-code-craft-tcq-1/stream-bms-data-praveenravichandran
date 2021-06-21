@@ -81,8 +81,8 @@ int main()
 	char * SOCString;
 	float temp_Value;
 	float soc_Value;
-	float tempMin = 0;
-	float SOCMin = 0;
+	float tempMin = 100;
+	float SOCMin = 100;
 	float tempMax = 0;
 	float SOCMax = 0;
 	
