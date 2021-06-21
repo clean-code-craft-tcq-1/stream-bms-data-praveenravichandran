@@ -52,7 +52,7 @@ int main()
 	
 	//fscanf(fp, "%s", InputString);
 	fgets(InputString, 255, (FILE*)fp);
-  	//printf("1 : %s\n", InputString );
+  	printf("1 : %s\n", InputString );
 	fclose(fp);
 	
 	return 0;
