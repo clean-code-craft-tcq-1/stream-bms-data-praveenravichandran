@@ -48,7 +48,7 @@ int main()
 	FILE *fp;
    	char InputString[255];
 
-   	fp = fopen("InputDataStream.txt", "r");
+   	fp = fopen("/BMSApplication_Receiver/InputDataStream.txt", "r");
 	
 	fscanf(fp, "%s", InputString);
   	//printf("1 : %s\n", InputString );
