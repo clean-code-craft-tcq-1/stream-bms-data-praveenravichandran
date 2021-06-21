@@ -42,6 +42,13 @@
  =============================================================================*/
 
  #ifndef UNIT_TEST   
+float getTempParameterValue(char * TempString)
+{
+	char * token = strtok(TempString, ":");	
+	token = strtok(NULL, ":");
+	float temp = atof(token);
+	return temp;
+}
 
 int main()
 {
@@ -49,6 +56,8 @@ int main()
    	char InputString[255];
 	char * TempString;
 	char * SOCString;
+	float temp_Value;
+	flaot soc_Value;
 	
 	char* pend;
 	
@@ -65,7 +74,12 @@ int main()
 			
 		printf("TempString = %s",TempString);
 		printf("SOCString = %s",SOCString);
-
+		
+		temp_Value = getParameterValue(TempString);
+		soc_Value = getParameterValue(SOCString);
+		
+		printf("Temp=.2f",temp_Value);
+		printf("SOC=.2f",soc_Value);
 	}
 	
 	fclose(fp);
