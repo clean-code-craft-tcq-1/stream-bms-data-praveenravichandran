@@ -45,6 +45,14 @@
 
 int main()
 {
+	FILE *fp;
+   	char InputString[255];
+
+   	fp = fopen("test.txt", "r");
+	
+	fscanf(fp, "%s", InputString);
+  	printf("1 : %s\n", InputString );
+	fclose(fp);
 	
 	return 0;
 }
