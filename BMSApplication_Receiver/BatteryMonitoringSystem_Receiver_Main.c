@@ -54,9 +54,13 @@ int main()
 	while (fgets(InputString, 255, (FILE*)fp)) 
 	{
 		printf("%s", InputString); 
-		float f1 = atof(InputString);
-		
-		printf("%.2f\n", f1);
+		char * token = strtok(InputString, ",");
+   		// loop through the string to extract all other tokens
+   		while( token != NULL ) 
+		{
+      			printf( " %s\n", token ); //printing each token
+      			token = strtok(NULL, ",");
+   		}
 	}
 	
 	fclose(fp);
