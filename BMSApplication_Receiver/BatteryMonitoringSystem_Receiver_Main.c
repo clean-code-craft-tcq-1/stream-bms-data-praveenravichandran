@@ -47,17 +47,18 @@ int main()
 {
 	FILE *fp;
    	char InputString[255];
-
-   	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
+	char* pend;
 	
-	//fscanf(fp, "%s", InputString);
-	fgets(InputString, 255, (FILE*)fp);
-  	printf("1 : %s\n", InputString );
+   	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
 	
 	while (fgets(InputString, 255, (FILE*)fp)) 
 	{
 		printf("%s", InputString); 
+		float f1 = strtof(array, &pend);
+		float f2 = strtof(pend, NULL);
+		printf("%.2f\n%.2f\n", f1, f2);
 	}
+	
 	fclose(fp);
 	
 	return 0;
