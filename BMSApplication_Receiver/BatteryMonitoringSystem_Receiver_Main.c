@@ -17,7 +17,7 @@
 /*------ standard includes -------*/
 #include <stdio.h>
 #include <unistd.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
 #include <string.h>
@@ -72,7 +72,9 @@ int main(int argc,char *argv[])
 	FILE *in=fopen(*++argv,"r");
 	char c;
 	while((c=fgetc(in))!=EOF)
-		putchar(c);
+	{
+		//putchar(c);
+	}
 	fclose(in);
 	
 	fgets(stringIP, sizeof stringIP, stdin);
