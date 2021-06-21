@@ -51,6 +51,7 @@ int main()
    	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
 	
 	//fscanf(fp, "%s", InputString);
+	fgets(InputString, 255, (FILE*)fp);
   	//printf("1 : %s\n", InputString );
 	fclose(fp);
 	
