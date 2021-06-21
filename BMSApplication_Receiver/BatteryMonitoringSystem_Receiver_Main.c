@@ -54,8 +54,8 @@ int main()
 	while (fgets(InputString, 255, (FILE*)fp)) 
 	{
 		printf("%s", InputString); 
-		float f1 = strtof(InputString, &pend);
-		float f2 = strtof(pend, NULL);
+		float f1 = atof(InputString);
+		float f2;// = strtof(pend, NULL);
 		printf("%.2f\n%.2f\n", f1, f2);
 	}
 	
