@@ -48,8 +48,10 @@ int  readInputFromPipe(char *stringIP)
 	{
 		scanf("%s",stringIP);
 		printf("%s\n",stringIP);
+		printf("%s\n",stringIP[0]);
     		length = strlen(stringIP);
-    
+    		printf("%d\n",length);
+		
     		stringIP[length] = '\n';
     		stringIP[length + 1] = '\0';
 		
