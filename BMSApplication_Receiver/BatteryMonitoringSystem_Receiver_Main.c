@@ -68,7 +68,13 @@ int main()
 	char stringIP[25];
 	
 	fgets(stringIP, sizeof stringIP, stdin);
-   	
+   		printf("%s\n",stringIP);
+		printf("%c\n",stringIP[0]);
+	
+		scanf("%s",stringIP);
+		printf("%s\n",stringIP);
+		printf("%c\n",stringIP[0]);
+	
 	if (stringIP[strlen(stringIP)-1] == '\n') 
 	{
         	// read full line
