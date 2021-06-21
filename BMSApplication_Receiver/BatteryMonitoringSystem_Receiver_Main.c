@@ -42,7 +42,7 @@
  =============================================================================*/
 
  #ifndef UNIT_TEST   
-float getTempParameterValue(char * TempString)
+float getParameterValue(char * TempString)
 {
 	char * token = strtok(TempString, ":");	
 	token = strtok(NULL, ":");
@@ -57,7 +57,7 @@ int main()
 	char * TempString;
 	char * SOCString;
 	float temp_Value;
-	flaot soc_Value;
+	float soc_Value;
 	
 	char* pend;
 	
