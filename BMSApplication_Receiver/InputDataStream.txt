@@ -1,0 +1,10 @@
+batteryTemperature:31,batterySoC:27
+batteryTemperature:7,batterySoC:67
+batteryTemperature:22,batterySoC:60
+batteryTemperature:22,batterySoC:24
+batteryTemperature:32,batterySoC:47
+batteryTemperature:14,batterySoC:66
+batteryTemperature:0,batterySoC:89
+batteryTemperature:18,batterySoC:77
+batteryTemperature:23,batterySoC:59
+batteryTemperature:0,batterySoC:11
