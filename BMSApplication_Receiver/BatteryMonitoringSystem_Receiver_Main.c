@@ -46,7 +46,7 @@ int main()
 {
   char buf[MAX];
     fgets(buf, MAX, stdin);
-    printf("string is: %s\n", buf[1]);
+    printf("string is: %s\n", buf[]);
  
 }
 
