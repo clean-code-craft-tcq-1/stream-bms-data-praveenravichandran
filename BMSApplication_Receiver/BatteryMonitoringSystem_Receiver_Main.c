@@ -51,7 +51,7 @@ int main()
    	fp = fopen("test.txt", "r");
 	
 	fscanf(fp, "%s", InputString);
-  	printf("1 : %s\n", InputString );
+  	//printf("1 : %s\n", InputString );
 	fclose(fp);
 	
 	return 0;
