@@ -65,7 +65,8 @@ int  readInputFromPipe(char *stringIP)
 
 int main()
 {
-	char stringIP[25];
+	char stringIP[250];
+	 int p[2], i;
 	
 	fgets(stringIP, sizeof stringIP, stdin);
    		printf("%s\n",stringIP);
@@ -74,6 +75,14 @@ int main()
 		scanf("%s",stringIP);
 		printf("%s\n",stringIP);
 		printf("%c\n",stringIP[0]);
+	
+	 for (i = 0; i < 3; i++) {
+        /* read pipe */
+        read(p[0], stringIP, 250);
+        printf("% s\n", inbuf);
+		 		printf("%s\n",stringIP);
+		printf("%c\n",stringIP[0]);
+    }
 	
 	if (stringIP[strlen(stringIP)-1] == '\n') 
 	{
