@@ -64,7 +64,7 @@ int  readInputFromPipe(char *stringIP)
 	}
 }
 
-int main()
+int main(int argc,char *argv[])
 {
 	char stringIP[250];
 	 int p[2], i;
