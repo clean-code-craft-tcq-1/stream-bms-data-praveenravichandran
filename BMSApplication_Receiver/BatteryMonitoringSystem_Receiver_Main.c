@@ -47,8 +47,8 @@ int main()
 {
 	FILE *fp;
    	char InputString[255];
-	char TempString[100];
-	char SOCString[100];
+	char * TempString;
+	char * SOCString;
 	
 	char* pend;
 	
