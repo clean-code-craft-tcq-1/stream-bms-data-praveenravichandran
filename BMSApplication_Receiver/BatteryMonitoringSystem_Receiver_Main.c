@@ -69,6 +69,11 @@ int main(int argc,char *argv[])
 	char stringIP[250];
 	 int p[2], i;
 	
+	int nread = read(p[0], stringIP , 250);
+	   		printf("%s\n",stringIP);
+		printf("%c\n",stringIP[0]);
+	printf("%d\n",nread);
+	
 	FILE *in=fopen(*++argv,"r");
 	char c;
 	          while (fgets(stringIP, sizeof stringIP, stdin))  
