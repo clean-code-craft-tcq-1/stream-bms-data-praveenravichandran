@@ -55,8 +55,8 @@ int main()
 	{
 		printf("%s", InputString); 
 		float f1 = atof(InputString);
-		float f2;// = strtof(pend, NULL);
-		printf("%.2f\n%.2f\n", f1, f2);
+		
+		printf("%.2f\n", f1);
 	}
 	
 	fclose(fp);
