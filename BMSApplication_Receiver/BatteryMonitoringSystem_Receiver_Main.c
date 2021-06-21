@@ -48,7 +48,7 @@ int main()
 	FILE *fp;
    	char InputString[255];
 
-   	fp = fopen("test.txt", "r");
+   	fp = fopen("InputDataStream.txt", "r");
 	
 	fscanf(fp, "%s", InputString);
   	//printf("1 : %s\n", InputString );
