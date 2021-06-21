@@ -41,13 +41,12 @@
  =======                              METHODS                            =======
  =============================================================================*/
 
-
-int main(int argc, char *argv[])
+#define MAX 15
+int main()
 {
- int i;
- char  *c[100];
- c = fgetc(stdin);
- printf("%s\n",c[1]);
+  char buf[MAX];
+    fgets(buf, MAX, stdin);
+    printf("string is: %s\n", buf);
  
 }
 
