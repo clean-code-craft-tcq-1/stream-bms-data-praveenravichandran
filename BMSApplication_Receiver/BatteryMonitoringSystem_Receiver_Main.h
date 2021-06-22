@@ -47,5 +47,5 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax);
 void BMS_Receiver_printParameter(char paramName[],char paramStatus[],float paramValue);
 float BMS_Receiver_calculateMovingAverage(int count,float param_Value[]);
 void BMS_Receiver_Print_Parameters_to_console(int count,BMS_Rx_Print_Params_s BMS_Rx_Print_Params);
-
+void delay(int number_of_seconds);
 #endif /*BMS_RX_H_*/
