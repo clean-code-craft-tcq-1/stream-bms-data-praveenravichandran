@@ -170,7 +170,7 @@ int BMS_Receiver_Main_Function(void)
 #ifndef UNIT_TEST
 int main()
 {	
-	(void)BMS_Receiver_Main_Function();
+	int count = BMS_Receiver_Main_Function();
 	
 	return 0;
 }
