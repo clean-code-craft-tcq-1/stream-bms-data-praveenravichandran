@@ -39,7 +39,7 @@
  =======                              METHODS                            =======
  =============================================================================*/
 
- #ifndef UNIT_TEST   
+   
  
 BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[])
 {
@@ -166,6 +166,7 @@ void BMS_Receiver_Main_Function(void)
 	
 }
 
+#ifndef UNIT_TEST
 int main()
 {	
 	BMS_Receiver_Main_Function();
