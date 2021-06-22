@@ -5,5 +5,5 @@
 
 TEST_CASE("Check if all the values received had been send to console") {
 	
-  //BMS_Receiver_Main_Function();
+  BMS_Receiver_Main_Function();
 }
