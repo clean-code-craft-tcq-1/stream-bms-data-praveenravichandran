@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 /*------ module includes --------*/
 #include "BatteryMonitoringSystem_Receiver_Main.h"
@@ -39,7 +40,6 @@
  =======                              METHODS                            =======
  =============================================================================*/
 
-   
  
 BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[])
 {
