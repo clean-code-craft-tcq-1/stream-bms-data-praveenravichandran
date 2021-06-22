@@ -17,9 +17,6 @@
 /*------ standard includes -------*/
 #include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdbool.h>
 #include <string.h>
 
 /*------ module includes --------*/
