@@ -91,7 +91,7 @@ float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
 	float movingAvg = 0;
 	float sum = 0;
 	
-	if(count < MOVING_AVERAGE_SAMPLES)
+	if(count < (MOVING_AVERAGE_SAMPLES-1))
 	{
 		while(count != 0)
 		{
@@ -136,9 +136,7 @@ void BMS_Receiver_Main_Function(void)
    	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
 	
 	while (fgets(InputString, 255, (FILE*)fp)) 
-	{
-		count = count + 1;
-		
+	{		
 		/*Get Input Parameters from the Input file read*/
 		BMS_Rx_Parama_IP = BMS_Receiver_Get_Parameters_from_Input(InputString);
 		
@@ -160,6 +158,8 @@ void BMS_Receiver_Main_Function(void)
 		
 		/*Print parameters to console*/
 		BMS_Receiver_Print_Parameters_to_console(count,BMS_Rx_Print_Params);
+		
+		count = count + 1;
 	}
 	
 	fclose(fp);	
