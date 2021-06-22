@@ -41,5 +41,5 @@ TEST_CASE("Check if moving average for parameter is found or not") {
 	
 	/*Moving average for samples 5*/
 	movAvgValue = BMS_Receiver_calculateMovingAverage(8,tempValueSample);
-	REQUIRE(movAvgValue == 6);
+	REQUIRE(movAvgValue == 7);
 }
