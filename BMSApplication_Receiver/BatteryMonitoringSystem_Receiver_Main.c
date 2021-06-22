@@ -34,7 +34,7 @@
 /*=============================================================================
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
-
+BMS_Rx_Verify_Output_s BMS_Rx_Verify_Output = {0};
 /*=============================================================================
  =======                              METHODS                            =======
  =============================================================================*/
@@ -84,6 +84,7 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 void BMS_Receiver_printParameter(char paramName[],char paramStatus[],float paramValue)
 {
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
+	BMS_Rx_Verify_Output.countPrint++;
 }
 
 float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
