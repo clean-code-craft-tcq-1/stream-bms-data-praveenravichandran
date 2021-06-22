@@ -37,10 +37,6 @@ typedef struct
 	float SOCMovingAverage;
 }BMS_Rx_Print_Params_s;
 
-typedef struct 
-{
-	int countPrint;
-}BMS_Rx_Verify_Output_s;
 int BMS_Receiver_Main_Function(void);
 
 BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[]);
