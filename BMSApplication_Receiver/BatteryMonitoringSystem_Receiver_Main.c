@@ -77,7 +77,6 @@ void printParameter(char paramName[100],char paramStatus[100],float paramValue)
 float calculateMovingAverage(int count,float param_Value[])
 {
 	float sum = 0;
-	int numberOfVariables = count;
 	
 	if(count <5)
 	{
@@ -89,10 +88,10 @@ float calculateMovingAverage(int count,float param_Value[])
 	}
 	else
 	{
-		sum_Temp = param_Value[count] + param_Value[count-1] + param_Value[count-2] + param_Value[count-3] + param_Value[count-4];
+		sum = param_Value[count] + param_Value[count-1] + param_Value[count-2] + param_Value[count-3] + param_Value[count-4];
 	}
 	
-	tempMovingAvg = sum_Temp/5;
+	tempMovingAvg = sum/5;
 	
 	return tempMovingAvg;
 }
@@ -112,6 +111,8 @@ int main()
 	float tempMax = 0;
 	float SOCMax = 0;
 	int count = 0;
+	float tempMovingAverage;
+	float SOCMovingAverage;
 	
 	char* pend;
 	
