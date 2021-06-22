@@ -22,11 +22,11 @@ TEST_CASE("Check if maximum value for parameter is found or not") {
 	float maxValueNew = 0;
 	
   	maxValueNew = BMS_Receiver_calculateMaxParameterValue(10,maxValueCurrent);
-	REQUIRE(minValueNew == maxValueCurrent);
+	REQUIRE(maxValueNew == maxValueCurrent);
 	
 	maxValueNew = BMS_Receiver_calculateMaxParameterValue(23,maxValueCurrent);
-	REQUIRE(minValueNew == 23);
+	REQUIRE(maxValueNew == 23);
 	
 	maxValueNew = BMS_Receiver_calculateMaxParameterValue(15,maxValueCurrent);
-	REQUIRE(minValueNew == maxValueCurrent);
+	REQUIRE(maxValueNew == maxValueCurrent);
 }
