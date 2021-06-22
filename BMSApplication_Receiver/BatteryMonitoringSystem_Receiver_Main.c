@@ -146,9 +146,9 @@ int main()
 		printParameter("Temperature","maximum",tempMax);
 		printParameter("SOC","minimum",SOCMin);
 		printParameter("SOC","maximum",SOCMax);
-		printParameter("Temperature","moving average",SOCMin);
-		printParameter("SOC","moving average",SOCMax);
-		printf("\n End for Data %d\n\n",count);
+		printParameter("Temperature","moving average",tempMovingAverage);
+		printParameter("SOC","moving average",SOCMovingAverage);
+		printf("End for Data %d\n\n",count);
 	}
 	
 	fclose(fp);
