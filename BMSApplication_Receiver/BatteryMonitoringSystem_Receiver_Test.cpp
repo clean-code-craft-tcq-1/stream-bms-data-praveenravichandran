@@ -30,3 +30,16 @@ TEST_CASE("Check if maximum value for parameter is found or not") {
 	maxValueNew = BMS_Receiver_calculateMaxParameterValue(15,maxValueCurrent);
 	REQUIRE(maxValueNew == maxValueCurrent);
 }
+
+TEST_CASE("Check if maximum value for parameter is found or not") {
+	float tempValueSample[10]= {1,2,3,4,5,6,7,8,9,10};
+	float movAvgValue = 0;
+	
+	/*Moving average for samples less than 5*/
+	movAvgValue = BMS_Receiver_calculateMovingAverage(3,tempValueSample);
+	REQUIRE(movAvgValue == 1.2);
+	
+	/*Moving average for samples 5*/
+	movAvgValue = BMS_Receiver_calculateMovingAverage(8,tempValueSample);
+	REQUIRE(movAvgValue == 6);
+}
