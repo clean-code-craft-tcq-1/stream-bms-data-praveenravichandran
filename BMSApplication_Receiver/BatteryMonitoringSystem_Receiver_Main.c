@@ -36,7 +36,8 @@
 /*=============================================================================
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
-
+static float tempMovingAvg = 0;
+static float SOCMovingAvg = 0;
 /*=============================================================================
  =======                              METHODS                            =======
  =============================================================================*/
@@ -73,18 +74,44 @@ void printParameter(char paramName[100],char paramStatus[100],float paramValue)
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
 }
 
+float calculateMovingAverage(int count,float param_Value[])
+{
+	float sum = 0;
+	int numberOfVariables = count;
+	
+	if(count <5)
+	{
+		while(count != 0)
+		{
+			sum = sum + param_Value[count];
+			count = count - 1;
+		}
+	}
+	else
+	{
+		sum_Temp = param_Value[count] + param_Value[count-1] + param_Value[count-2] + param_Value[count-3] + param_Value[count-4];
+	}
+	
+	tempMovingAvg = sum_Temp/5;
+	
+	return tempMovingAvg;
+}
+
 int main()
 {
 	FILE *fp;
    	char InputString[255];
 	char * TempString;
 	char * SOCString;
-	float temp_Value;
-	float soc_Value;
+	float temp_Value[10];
+	float soc_Value[10];
+	float tempSum = 0;
+	float SOCSum = 0;
 	float tempMin = 100;
 	float SOCMin = 100;
 	float tempMax = 0;
 	float SOCMax = 0;
+	int count = 0;
 	
 	char* pend;
 	
@@ -92,25 +119,35 @@ int main()
 	
 	while (fgets(InputString, 255, (FILE*)fp)) 
 	{
+		count = count + 1;
+		
 		char * token = strtok(InputString, ",");
 		TempString = token;
 		
 		token = strtok(NULL, ",");
 		SOCString = token;
 		
-		temp_Value = getParameterValue(TempString);
-		soc_Value = getParameterValue(SOCString);
+		temp_Value[count] = getParameterValue(TempString);
+		soc_Value[count] = getParameterValue(SOCString);
 		
-		tempMin = calculateMinParameterValue(temp_Value,tempMin);
-		SOCMin = calculateMinParameterValue(soc_Value,SOCMin);
+		tempMin = calculateMinParameterValue(temp_Value[count],tempMin);
+		SOCMin = calculateMinParameterValue(soc_Value[count],SOCMin);
 		
-		tempMax = calculateMaxParameterValue(temp_Value,tempMax);
-		SOCMax = calculateMaxParameterValue(soc_Value,SOCMax);
+		tempMax = calculateMaxParameterValue(temp_Value[count],tempMax);
+		SOCMax = calculateMaxParameterValue(soc_Value[count],SOCMax);
 		
+		tempSum = tempSum + temp_Value[count];
+		tempMovingAverage = calculateMovingAverage(count,temp_Value);
+		SOCMovingAverage = calculateMovingAverage(count,soc_Value);
+		
+		printf("\nStart For Data %d\n",count);
 		printParameter("Temperature","minimum",tempMin);
 		printParameter("Temperature","maximum",tempMax);
 		printParameter("SOC","minimum",SOCMin);
 		printParameter("SOC","maximum",SOCMax);
+		printParameter("Temperature","moving average",SOCMin);
+		printParameter("SOC","moving average",SOCMax);
+		printf("\n End for Data %d\n\n",count);
 	}
 	
 	fclose(fp);
