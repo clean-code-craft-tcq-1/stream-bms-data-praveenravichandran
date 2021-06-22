@@ -3,7 +3,16 @@
 #include "../testRx/catch.hpp"
 #include "BatteryMonitoringSystem_Receiver_Main.h"
 
-TEST_CASE("Check if all the values received had been send to console") {
+TEST_CASE("Check if minimum value for parameter is found or not") {
+	float minValueCurrent = 15;
+	float minValueNew = 0;
 	
-  BMS_Receiver_Main_Function();
+  	minValueNew = BMS_Receiver_calculateMinParameterValue(10,minValueCurrent);
+	REQUIRE(minValueNew  = 10);
+	
+	minValueNew = BMS_Receiver_calculateMinParameterValue(23,minValueCurrent);
+	REQUIRE(minValueNew  = minValueCurrent);
+	
+	minValueNew = BMS_Receiver_calculateMinParameterValue(15,minValueCurrent);
+	REQUIRE(minValueNew  = minValueCurrent);
 }
