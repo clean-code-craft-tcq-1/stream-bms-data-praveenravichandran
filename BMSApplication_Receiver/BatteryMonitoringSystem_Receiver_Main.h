@@ -43,8 +43,8 @@ BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[]);
 int  readInputFromPipe(char *paramIP);
 float BMS_Receiver_getParameterValue(char * String);
 float BMS_Receiver_calculateMinParameterValue(float paramValue, float paramMin);
-float calculateMaxParameterValue(float paramValue, float paramMax);
-void printParameter(char paramName[100],char paramStatus[100],float paramValue);
+float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax);
+void BMS_Receiver_printParameter(char paramName[100],char paramStatus[100],float paramValue);
 float BMS_Receiver_calculateMovingAverage(int count,float param_Value[]);
 void BMS_Receiver_Print_Parameters_to_console(int count,BMS_Rx_Print_Params_s BMS_Rx_Print_Params);
 #endif /*BMS_RX_H_*/
