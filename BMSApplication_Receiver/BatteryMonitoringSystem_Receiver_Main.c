@@ -34,22 +34,36 @@
 /*=============================================================================
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
-static float tempMovingAvg = 0;
-static float SOCMovingAvg = 0;
+
 /*=============================================================================
  =======                              METHODS                            =======
  =============================================================================*/
 
  #ifndef UNIT_TEST   
-float getParameterValue(char * TempString)
+ 
+BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[])
 {
-	char * token = strtok(TempString, ":");	
+	BMS_Rx_Parama_IP_s BMS_Rx_Parama_IP;
+	
+	char * token = strtok(InputString, ",");
+	BMS_Rx_Parama_IP.TempString = token;
+	
+	token = strtok(NULL, ",");
+	BMS_Rx_Parama_IP.SOCString = token;	
+	
+	return BMS_Rx_Parama_IP;
+}
+
+float BMS_Receiver_getParameterValue(char * String)
+{
+	char * token = strtok(String, ":");	
 	token = strtok(NULL, ":");
 	float temp = atof(token);
+	
 	return temp;
 }
 
-float calculateMinParameterValue(float paramValue, float paramMin)
+float BMS_Receiver_calculateMinParameterValue(float paramValue, float paramMin)
 {
 	if(paramValue<paramMin)
 	{
@@ -58,7 +72,7 @@ float calculateMinParameterValue(float paramValue, float paramMin)
 	return paramMin;	
 }
 
-float calculateMaxParameterValue(float paramValue, float paramMax)
+float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 {
 	if(paramValue>paramMax)
 	{
@@ -72,11 +86,12 @@ void printParameter(char paramName[100],char paramStatus[100],float paramValue)
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
 }
 
-float calculateMovingAverage(int count,float param_Value[])
+float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
 {
+	float movingAvg = 0;
 	float sum = 0;
 	
-	if(count <5)
+	if(count < MOVING_AVERAGE_SAMPLES)
 	{
 		while(count != 0)
 		{
@@ -89,30 +104,34 @@ float calculateMovingAverage(int count,float param_Value[])
 		sum = param_Value[count] + param_Value[count-1] + param_Value[count-2] + param_Value[count-3] + param_Value[count-4];
 	}
 	
-	tempMovingAvg = sum/5;
+	movingAvg = sum/MOVING_AVERAGE_SAMPLES;
 	
-	return tempMovingAvg;
+	return movingAvg;
 }
 
-int main()
+void BMS_Receiver_Print_Parameters_to_console(int count,BMS_Rx_Print_Params_s BMS_Rx_Print_Params)
 {
+	printf("\nStart For Data %d\n",count);
+	printParameter("Temperature","minimum",BMS_Rx_Print_Params.tempMin);
+	printParameter("Temperature","maximum",BMS_Rx_Print_Params.tempMax);
+	printParameter("SOC","minimum",BMS_Rx_Print_Params.SOCMin);
+	printParameter("SOC","maximum",BMS_Rx_Print_Params.SOCMax);
+	printParameter("Temperature","moving average",BMS_Rx_Print_Params.tempMovingAverage);
+	printParameter("SOC","moving average",BMS_Rx_Print_Params.SOCMovingAverage);
+	printf("End for Data %d\n\n",count);
+}
+
+void BMS_Receiver_Main_Function(void)
+{
+	
 	FILE *fp;
    	char InputString[255];
-	char * TempString;
-	char * SOCString;
-	float temp_Value[10];
-	float soc_Value[10];
-	float tempSum = 0;
-	float SOCSum = 0;
-	float tempMin = 100;
-	float SOCMin = 100;
-	float tempMax = 0;
-	float SOCMax = 0;
+	float temp_Value[NUMBER_OF_SAMPLES];
+	float soc_Value[NUMBER_OF_SAMPLES];
 	int count = 0;
-	float tempMovingAverage;
-	float SOCMovingAverage;
-	
-	char* pend;
+	BMS_Rx_Parama_IP_s BMS_Rx_Parama_IP;
+	BMS_Rx_Print_Params_s BMS_Rx_Print_Params = {100,100,0,0,0,0};
+
 	
    	fp = fopen("./BMSApplication_Receiver/InputDataStream.txt", "r");
 	
@@ -120,36 +139,36 @@ int main()
 	{
 		count = count + 1;
 		
-		char * token = strtok(InputString, ",");
-		TempString = token;
+		/*Get Input Parameters from the Input file read*/
+		BMS_Rx_Parama_IP = BMS_Receiver_Get_Parameters_from_Input(InputString);
 		
-		token = strtok(NULL, ",");
-		SOCString = token;
+		/*Get the parameter values*/
+		temp_Value[count] = BMS_Receiver_getParameterValue(BMS_Rx_Parama_IP.TempString);
+		soc_Value[count] = BMS_Receiver_getParameterValue(BMS_Rx_Parama_IP.SOCString);
 		
-		temp_Value[count] = getParameterValue(TempString);
-		soc_Value[count] = getParameterValue(SOCString);
+		/*Calculate minimum for each parameter*/
+		BMS_Rx_Print_Params.tempMin = BMS_Receiver_calculateMinParameterValue(temp_Value[count],tempMin);
+		BMS_Rx_Print_Params.SOCMin = BMS_Receiver_calculateMinParameterValue(soc_Value[count],SOCMin);
 		
-		tempMin = calculateMinParameterValue(temp_Value[count],tempMin);
-		SOCMin = calculateMinParameterValue(soc_Value[count],SOCMin);
+		/*Calculate maximum for each parameter*/
+		BMS_Rx_Print_Params.tempMax = BMS_Receiver_calculateMaxParameterValue(temp_Value[count],tempMax);
+		BMS_Rx_Print_Params.SOCMax = BMS_Receiver_calculateMaxParameterValue(soc_Value[count],SOCMax);
 		
-		tempMax = calculateMaxParameterValue(temp_Value[count],tempMax);
-		SOCMax = calculateMaxParameterValue(soc_Value[count],SOCMax);
+		/*Calculate moving average for each parameter*/
+		BMS_Rx_Print_Params.tempMovingAverage = BMS_Receiver_calculateMovingAverage(count,temp_Value);
+		BMS_Rx_Print_Params.SOCMovingAverage = BMS_Receiver_calculateMovingAverage(count,soc_Value);
 		
-		tempSum = tempSum + temp_Value[count];
-		tempMovingAverage = calculateMovingAverage(count,temp_Value);
-		SOCMovingAverage = calculateMovingAverage(count,soc_Value);
-		
-		printf("\nStart For Data %d\n",count);
-		printParameter("Temperature","minimum",tempMin);
-		printParameter("Temperature","maximum",tempMax);
-		printParameter("SOC","minimum",SOCMin);
-		printParameter("SOC","maximum",SOCMax);
-		printParameter("Temperature","moving average",tempMovingAverage);
-		printParameter("SOC","moving average",SOCMovingAverage);
-		printf("End for Data %d\n\n",count);
+		/*Print parameters to console*/
+		BMS_Receiver_Print_Parameters_to_console(count,BMS_Rx_Print_Params);
 	}
 	
-	fclose(fp);
+	fclose(fp);	
+	
+}
+
+int main()
+{	
+	BMS_Receiver_Main_Function();
 	
 	return 0;
 }
