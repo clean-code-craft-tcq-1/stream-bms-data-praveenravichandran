@@ -31,7 +31,7 @@ TEST_CASE("Check if maximum value for parameter is found or not") {
 	REQUIRE(maxValueNew == maxValueCurrent);
 }
 
-TEST_CASE("Check if maximum value for parameter is found or not") {
+TEST_CASE("Check if moving average for parameter is found or not") {
 	float tempValueSample[10]= {1,2,3,4,5,6,7,8,9,10};
 	float movAvgValue = 0;
 	
