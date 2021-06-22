@@ -81,7 +81,7 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 	return paramMax;	
 }
 
-void printParameter(char paramName[100],char paramStatus[100],float paramValue)
+void BMS_Receiver_printParameter(char paramName[100],char paramStatus[100],float paramValue)
 {
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
 }
@@ -112,12 +112,12 @@ float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
 void BMS_Receiver_Print_Parameters_to_console(int count,BMS_Rx_Print_Params_s BMS_Rx_Print_Params)
 {
 	printf("\nStart For Data %d\n",count);
-	printParameter("Temperature","minimum",BMS_Rx_Print_Params.tempMin);
-	printParameter("Temperature","maximum",BMS_Rx_Print_Params.tempMax);
-	printParameter("SOC","minimum",BMS_Rx_Print_Params.SOCMin);
-	printParameter("SOC","maximum",BMS_Rx_Print_Params.SOCMax);
-	printParameter("Temperature","moving average",BMS_Rx_Print_Params.tempMovingAverage);
-	printParameter("SOC","moving average",BMS_Rx_Print_Params.SOCMovingAverage);
+	BMS_Receiver_printParameter("Temperature","minimum",BMS_Rx_Print_Params.tempMin);
+	BMS_Receiver_printParameter("Temperature","maximum",BMS_Rx_Print_Params.tempMax);
+	BMS_Receiver_printParameter("SOC","minimum",BMS_Rx_Print_Params.SOCMin);
+	BMS_Receiver_printParameter("SOC","maximum",BMS_Rx_Print_Params.SOCMax);
+	BMS_Receiver_printParameter("Temperature","moving average",BMS_Rx_Print_Params.tempMovingAverage);
+	BMS_Receiver_printParameter("SOC","moving average",BMS_Rx_Print_Params.SOCMovingAverage);
 	printf("End for Data %d\n\n",count);
 }
 
