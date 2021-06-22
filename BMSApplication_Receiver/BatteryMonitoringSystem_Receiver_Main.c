@@ -34,7 +34,7 @@
 /*=============================================================================
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
-BMS_Rx_Verify_Output_s BMS_Rx_Verify_Output = {0};
+
 /*=============================================================================
  =======                              METHODS                            =======
  =============================================================================*/
@@ -84,8 +84,6 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 void BMS_Receiver_printParameter(char paramName[],char paramStatus[],float paramValue)
 {
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
-	BMS_Rx_Verify_Output
-	BMS_Rx_Verify_Output.countPrint++;
 }
 
 float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
@@ -123,7 +121,7 @@ void BMS_Receiver_Print_Parameters_to_console(int count,BMS_Rx_Print_Params_s BM
 	printf("End for Data %d\n\n",count);
 }
 
-void BMS_Receiver_Main_Function(void)
+int BMS_Receiver_Main_Function(void)
 {
 	
 	FILE *fp;
@@ -166,21 +164,15 @@ void BMS_Receiver_Main_Function(void)
 	
 	fclose(fp);	
 	
+	return count;
 }
 
 #ifndef UNIT_TEST
 int main()
 {	
-	BMS_Receiver_Main_Function();
+	(void)BMS_Receiver_Main_Function();
 	
 	return 0;
 }
 #endif 
 
-#ifdef UNIT_TEST
-int BMS_Receiver_Get_Status(void)
-{
-	int count = BMS_Rx_Verify_Output.countPrint;
-	return count;
-}
-#endif 
