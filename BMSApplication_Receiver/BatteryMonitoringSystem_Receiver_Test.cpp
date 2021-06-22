@@ -16,3 +16,17 @@ TEST_CASE("Check if minimum value for parameter is found or not") {
 	minValueNew = BMS_Receiver_calculateMinParameterValue(15,minValueCurrent);
 	REQUIRE(minValueNew == minValueCurrent);
 }
+
+TEST_CASE("Check if maximum value for parameter is found or not") {
+	float maxValueCurrent = 15;
+	float maxValueNew = 0;
+	
+  	maxValueNew = BMS_Receiver_calculateMaxParameterValue(10,maxValueCurrent);
+	REQUIRE(minValueNew == maxValueCurrent);
+	
+	maxValueNew = BMS_Receiver_calculateMaxParameterValue(23,maxValueCurrent);
+	REQUIRE(minValueNew == 23);
+	
+	maxValueNew = BMS_Receiver_calculateMaxParameterValue(15,maxValueCurrent);
+	REQUIRE(minValueNew == maxValueCurrent);
+}
