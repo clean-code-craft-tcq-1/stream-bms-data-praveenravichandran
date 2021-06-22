@@ -81,7 +81,7 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 	return paramMax;	
 }
 
-void BMS_Receiver_printParameter(char paramName[100],char paramStatus[100],float paramValue)
+void BMS_Receiver_printParameter(char paramName[],char paramStatus[],float paramValue)
 {
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
 }
@@ -147,12 +147,12 @@ void BMS_Receiver_Main_Function(void)
 		soc_Value[count] = BMS_Receiver_getParameterValue(BMS_Rx_Parama_IP.SOCString);
 		
 		/*Calculate minimum for each parameter*/
-		BMS_Rx_Print_Params.tempMin = BMS_Receiver_calculateMinParameterValue(temp_Value[count],tempMin);
-		BMS_Rx_Print_Params.SOCMin = BMS_Receiver_calculateMinParameterValue(soc_Value[count],SOCMin);
+		BMS_Rx_Print_Params.tempMin = BMS_Receiver_calculateMinParameterValue(temp_Value[count],BMS_Rx_Print_Params.tempMin);
+		BMS_Rx_Print_Params.SOCMin = BMS_Receiver_calculateMinParameterValue(soc_Value[count],BMS_Rx_Print_Params.SOCMin);
 		
 		/*Calculate maximum for each parameter*/
-		BMS_Rx_Print_Params.tempMax = BMS_Receiver_calculateMaxParameterValue(temp_Value[count],tempMax);
-		BMS_Rx_Print_Params.SOCMax = BMS_Receiver_calculateMaxParameterValue(soc_Value[count],SOCMax);
+		BMS_Rx_Print_Params.tempMax = BMS_Receiver_calculateMaxParameterValue(temp_Value[count],BMS_Rx_Print_Params.tempMax);
+		BMS_Rx_Print_Params.SOCMax = BMS_Receiver_calculateMaxParameterValue(soc_Value[count],BMS_Rx_Print_Params.SOCMax);
 		
 		/*Calculate moving average for each parameter*/
 		BMS_Rx_Print_Params.tempMovingAverage = BMS_Receiver_calculateMovingAverage(count,temp_Value);
