@@ -175,5 +175,10 @@ int main()
 	return 0;
 }
 #endif 
+int BMS_Receiver_Get_Status(void)
+{
+	return BMS_Rx_Verify_Output.countPrint;
+}
+#ifdef UNIT_TEST
 
-
+#endif 
