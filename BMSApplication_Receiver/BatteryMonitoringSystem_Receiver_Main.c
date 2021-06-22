@@ -93,7 +93,7 @@ float BMS_Receiver_calculateMovingAverage(int count,float param_Value[])
 	
 	if(count < (MOVING_AVERAGE_SAMPLES-1))
 	{
-		while(count < 0)
+		while(count >= 0)
 		{
 			sum = sum + param_Value[count];
 			count = count - 1;
