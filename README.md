@@ -2,6 +2,9 @@
 
 This project is about sending and receiving BMS data.
 
+# Note:
+**Note: For Rx side-> I couldnt take input through pipe(was new to topic and tried few times.also project is running in a heated mode, so couldnt check further), so reading the Input from a file with assumption that the file will be updated whenever sender sends the data.**
+
 ## Decomposition
 
 At a top level, the program runs in two processes - the sender and the receiver.
