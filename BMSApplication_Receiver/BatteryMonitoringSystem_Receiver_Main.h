@@ -35,6 +35,7 @@ typedef struct
 	float SOCMax;
 	float tempMovingAverage;
 	float SOCMovingAverage;
+	int countPrint;
 }BMS_Rx_Print_Params_s;
 
 void BMS_Receiver_Main_Function(void);
