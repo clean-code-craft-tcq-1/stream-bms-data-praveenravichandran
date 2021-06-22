@@ -159,6 +159,9 @@ int BMS_Receiver_Main_Function(void)
 		/*Print parameters to console*/
 		BMS_Receiver_Print_Parameters_to_console(count,BMS_Rx_Print_Params);
 		
+		/*Make a delay of 1s as sender updates in every 1s*/
+		delay(1000); 
+		
 		count = count + 1;
 	}
 	
