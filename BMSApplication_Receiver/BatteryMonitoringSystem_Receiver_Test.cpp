@@ -44,10 +44,8 @@ TEST_CASE("Check if moving average for parameter is found or not") {
 	REQUIRE(movAvgValue == 7);
 }
 
-TEST_CASE("Check if all parameters for all Inputs have been printed or not") {
-	BMS_Rx_Verify_Output_s BMS_Rx_Verify_Output = {0};
-	
-	BMS_Receiver_Main_Function();
-	BMS_Rx_Verify_Output.countPrint = BMS_Receiver_Get_Status();
-	REQUIRE(BMS_Rx_Verify_Output.countPrint == 60); /*6 values to be printed for each I/P, we have 10I/Ps from sender ie 6*10=60*/
+TEST_CASE("Check if how many values were read") {
+		
+	int count = BMS_Receiver_Main_Function();
+	REQUIRE(count == 10); 
 }
