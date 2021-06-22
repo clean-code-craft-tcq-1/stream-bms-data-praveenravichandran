@@ -84,6 +84,7 @@ float BMS_Receiver_calculateMaxParameterValue(float paramValue, float paramMax)
 void BMS_Receiver_printParameter(char paramName[],char paramStatus[],float paramValue)
 {
 	printf("%s have %s value as %.2f\n",paramName,paramStatus,paramValue);
+	BMS_Rx_Verify_Output
 	BMS_Rx_Verify_Output.countPrint++;
 }
 
@@ -175,10 +176,11 @@ int main()
 	return 0;
 }
 #endif 
+
+#ifdef UNIT_TEST
 int BMS_Receiver_Get_Status(void)
 {
-	return BMS_Rx_Verify_Output.countPrint;
+	int count = BMS_Rx_Verify_Output.countPrint;
+	return count;
 }
-#ifdef UNIT_TEST
-
 #endif 
