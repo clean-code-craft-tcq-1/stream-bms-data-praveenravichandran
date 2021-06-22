@@ -3,6 +3,19 @@
 #include "../testRx/catch.hpp"
 #include "BatteryMonitoringSystem_Receiver_Main.h"
 
+TEST_CASE("Check if minimum value for parameter is found or not") {
+	float minValueCurrent = 15;
+	float minValueNew = 0;
+	
+  	minValueNew = BMS_Receiver_calculateMinParameterValue(10,minValueCurrent);
+	REQUIRE(minValueNew == 10);
+	
+	minValueNew = BMS_Receiver_calculateMinParameterValue(23,minValueCurrent);
+	REQUIRE(minValueNew == minValueCurrent);
+	
+	minValueNew = BMS_Receiver_calculateMinParameterValue(15,minValueCurrent);
+	REQUIRE(minValueNew == minValueCurrent);
+}
 
 TEST_CASE("Check if maximum value for parameter is found or not") {
 	float maxValueCurrent = 15;
@@ -31,4 +44,8 @@ TEST_CASE("Check if moving average for parameter is found or not") {
 	REQUIRE(movAvgValue == 7);
 }
 
-
+TEST_CASE("Check if how many values were read") {
+		
+	int count = BMS_Receiver_Main_Function();
+	REQUIRE(count == 10); 
+}
