@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 /*------ module includes --------*/
 #include "BatteryMonitoringSystem_Receiver_Main.h"
