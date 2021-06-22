@@ -44,4 +44,8 @@ TEST_CASE("Check if moving average for parameter is found or not") {
 	REQUIRE(movAvgValue == 7);
 }
 
-
+TEST_CASE("Check if how many values were read") {
+		
+	int count = BMS_Receiver_Main_Function();
+	REQUIRE(count == 10); 
+}

@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 /*------ module includes --------*/
 #include "BatteryMonitoringSystem_Receiver_Main.h"
@@ -39,7 +40,18 @@
  =======                              METHODS                            =======
  =============================================================================*/
 
-   
+void delay(int number_of_seconds)
+{
+    // Converting time into milli_seconds
+    int milli_seconds = 1000 * number_of_seconds;
+  
+    // Storing start time
+    clock_t start_time = clock();
+  
+    // looping till required time is not achieved
+    while (clock() < start_time + milli_seconds)
+        ;
+}
  
 BMS_Rx_Parama_IP_s BMS_Receiver_Get_Parameters_from_Input(char InputString[])
 {
@@ -159,6 +171,9 @@ int BMS_Receiver_Main_Function(void)
 		/*Print parameters to console*/
 		BMS_Receiver_Print_Parameters_to_console(count,BMS_Rx_Print_Params);
 		
+		/*Make a delay of 1s as sender updates in every 1s*/
+		delay(1000); 
+		
 		count = count + 1;
 	}
 	
@@ -170,7 +185,7 @@ int BMS_Receiver_Main_Function(void)
 #ifndef UNIT_TEST
 int main()
 {	
-	(void)BMS_Receiver_Main_Function();
+	int count = BMS_Receiver_Main_Function();
 	
 	return 0;
 }
